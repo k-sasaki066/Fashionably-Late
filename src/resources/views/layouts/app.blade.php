@@ -19,6 +19,9 @@
     </header>
 
     <main>
+        <div class="content-title">
+            <h3 class="content-title__text">@yield('content-title')</h3>
+        </div>
         @yield('content')
     </main>
 
