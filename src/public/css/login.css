@@ -1,0 +1,17 @@
+main {
+    background: #f1ece7;
+}
+
+.login-form__group {
+    width: 50%;
+    margin: 0 auto;
+    padding: 60px 0;
+    background-color: #fff;
+    border: 1px solid #c5b9b0;
+    border-radius: 5px;
+}
+
+.login-form__button {
+    margin-top: 60px;
+    text-align: center;
+}
