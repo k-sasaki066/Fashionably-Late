@@ -1,0 +1,31 @@
+.thanks-message {
+    max-width: 1230px;
+    margin: 300px auto;
+    text-align: center;
+    position: relative;
+}
+
+.thanks-message__text {
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+
+.thanks-message__home-link {
+    padding: 10px 25px;
+    border: none;
+    background-color: #82756a;
+    color: #fff;
+    cursor: pointer;
+}
+
+.thanks-message::before {
+    content: "Thank you";
+    position: absolute;
+    top: -110%;
+    left: 10%;
+    font-size: 180px;
+    font-weight: 700;
+    color: #f9f8f7;
+    z-index: -1;
+}
