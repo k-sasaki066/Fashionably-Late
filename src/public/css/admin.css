@@ -1,0 +1,104 @@
+.content-title {
+    padding: 15px 0;
+}
+
+.search-form {
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-keyword {
+    width: 30%;
+    height: 40px;
+    background-color: #fbfbfb;
+    border: 1px solid #edeae8;
+    text-align: center;
+}
+
+.search-common {
+    background-color: #f4f4f4;
+    border: 1px solid #e3ded9;
+    text-align: center;
+}
+
+.search-gender {
+    width: 8%;
+    height: 40px;
+}
+
+.search-content {
+    width: 20%;
+    height: 40px;
+}
+
+.search-date {
+    width: 12%;
+    height: 40px;
+}
+
+.search-button {
+    width: 8%;
+    height: 40px;
+    background-color: #82756a;
+    border: none;
+    color: #fff;
+}
+
+.search-reset {
+    width: 8%;
+    height: 40px;
+    background-color: #d9c6b5;
+    border: none;
+    color: #fff;
+}
+
+.display__group {
+    width: 80%;
+    margin: 0 auto 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.scv-file {
+    width: 10%;
+}
+
+.scv-file__button {
+    width: 100%;
+    height: 35px;
+    background-color: #edeae6;
+    color: #8b7969;
+    border: none;
+    text-align: center;
+}
+
+.admin-table__group {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.admin-table {
+    width: 100%;
+    border: 1px solid #e0dfde;
+}
+
+.admin-table__header {
+    padding: 10px;
+    background-color: #8b7969;
+    color: #fff;
+    border-bottom: 1px solid #e0dfde;
+}
+
+.admin-table__item {
+    padding: 20px 10px;
+    text-align: center;
+    border-bottom: 1px solid #e0dfde;
+}
+
+.admin-table__row:last-child .admin-table__header,
+.admin-table__row:last-child .admin-table__item {
+    border-bottom-width: 0;
+}
