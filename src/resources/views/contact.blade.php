@@ -10,18 +10,26 @@ Contact
 
 @section('content')
 <div class="contact-form__group">
-    <form class="contact-form" action="" method="">
+    <form class="contact-form" action="/confirm" method="post">
+        @csrf
         <table class="contact-table">
             <tr class="contact-table__row">
                 <th class="contact-table__header">
                     お名前<span class="contact-table__header-span">※</span>
                 </th>
-                <td class="contact-table__item">
-                    <input class="contact-form__item-input contact-form__name" type="" name="" value="" placeholder="例:山田">
-                    <input class="contact-form__item-input contact-form__name" type="" name="" value="" placeholder="例:太郎">
+                <td class="contact-table__item name-form">
+                    <input class="contact-form__item-input contact-form__name" type="name" name="first_name" value="{{ old('first_name') }}" placeholder="例:山田">
+                    <input class="contact-form__item-input contact-form__name" type="name" name="last_name" value="{{ old('last_name') }}" placeholder="例:太郎">
+                    @error('first_name')
                     <div class="error-message">
-                        message
+                        {{ $message }}
                     </div>
+                    @enderror
+                    @error('last_name')
+                    <div class="error-message">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </td>
             </tr>
             <tr class="contact-table__row">
@@ -29,12 +37,20 @@ Contact
                     性別<span class="contact-table__header-span">※</span>
                 </th>
                 <td class="contact-table__item">
-                    <input class="contact-form__radio" type="radio" name="" value="男性">男性
-                    <input class="contact-form__radio" type="radio" name="" value="女性">女性
-                    <input class="contact-form__radio" type="radio" name="" value="その他">その他
+                    <label class="contact-form__label">
+                        <input class="contact-form__radio" type="radio" name="gender" value= "1" {{ old('gender') == 1 ? 'checked' : '' }} checked>男性
+                    </label>
+                    <label class="contact-form__label">
+                        <input class="contact-form__radio" type="radio" name="gender" value="2" {{ old('gender') == 2 ? 'checked' : '' }}>女性
+                    </label>
+                    <label class="contact-form__label">
+                        <input class="contact-form__radio" type="radio" name="gender" value="3" {{ old('gender') == 3 ? 'checked' : '' }}>その他
+                    </label>
+                    @error('gender')
                     <div class="error-message">
-                        message
+                        {{ $message }}
                     </div>
+                    @enderror
                 </td>
             </tr>
             <tr class="contact-table__row">
@@ -42,10 +58,12 @@ Contact
                     メールアドレス<span class="contact-table__header-span">※</span>
                 </th>
                 <td class="contact-table__item">
-                    <input class="contact-form__item-input" type="email" name="" value="" placeholder="例:test@example.com">
+                    <input class="contact-form__item-input" type="email" name="email" value="{{ old('email') }}" placeholder="例:test@example.com">
+                    @error('email')
                     <div class="error-message">
-                        message
+                        {{ $message }}
                     </div>
+                    @enderror
                 </td>
             </tr>
             <tr class="contact-table__row">
@@ -53,14 +71,26 @@ Contact
                     電話番号<span class="contact-table__header-span">※</span>
                 </th>
                 <td class="contact-table__item">
-                    <input class="contact-form__item-input contact-form__tel" type="tel" name="" value="" placeholder="例:080">
+                    <input class="contact-form__item-input contact-form__tel" type="tel" name="tel1" value="{{ old('tel1') }}" placeholder="例:080">
                     <span>-</span>
-                    <input class="contact-form__item-input contact-form__tel" type="tel" name="" value="" placeholder="例:1234">
+                    <input class="contact-form__item-input contact-form__tel" type="tel" name="tel2" value="{{ old('tel2') }}" placeholder="例:1234">
                     <span>-</span>
-                    <input class="contact-form__item-input contact-form__tel" type="tel" name="" value="" placeholder="例:5678">
+                    <input class="contact-form__item-input contact-form__tel" type="tel" name="tel3" value="{{ old('tel3') }}" placeholder="例:5678">
+                    @error('tel1')
                     <div class="error-message">
-                        message
+                        {{ $message }}
                     </div>
+                    @enderror
+                    @error('tel2')
+                    <div class="error-message">
+                        {{ $message }}
+                    </div>
+                    @enderror
+                    @error('tel3')
+                    <div class="error-message">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </td>
             </tr>
             <tr class="contact-table__row">
@@ -68,10 +98,12 @@ Contact
                     住所<span class="contact-table__header-span">※</span>
                 </th>
                 <td class="contact-table__item">
-                    <input class="contact-form__item-input" type="address" name="" value="" placeholder="例:東京都渋谷区千駄ヶ谷1-2-3">
+                    <input class="contact-form__item-input" type="text" name="address" value="{{ old('address') }}" placeholder="例:東京都渋谷区千駄ヶ谷1-2-3">
+                    @error('address')
                     <div class="error-message">
-                        message
+                        {{ $message }}
                     </div>
+                    @enderror
                 </td>
             </tr>
             <tr class="contact-table__row">
@@ -79,7 +111,7 @@ Contact
                     建物名
                 </th>
                 <td class="contact-table__item">
-                    <input class="contact-form__item-input" type="address" name="" value="" placeholder="例:千駄ヶ谷マンション101">
+                    <input class="contact-form__item-input" type="text" name="building" value="{{ old('building') }}" placeholder="例:千駄ヶ谷マンション101">
                 </td>
             </tr>
             <tr class="contact-table__row">
@@ -87,12 +119,17 @@ Contact
                     お問い合わせの種類<span class="contact-table__header-span">※</span>
                 </th>
                 <td class="contact-table__item">
-                    <select class="contact-form__item-input contact-form__select" name="" value="">
-                        <option value="">選択</option>
+                    <select class="contact-form__item-input contact-form__select" name="category_id" value="{{ old('category_id') }}">
+                        <option value="" selected>選択してください</option>
+                            @foreach($categories as $category)
+                            <option value="{{ $category['id'] }}">{{ $category['content'] }}</option>
+                            @endforeach
                     </select>
+                    @error('category_id')
                     <div class="error-message">
-                        message
+                        {{ $message }}
                     </div>
+                    @enderror
                 </td>
             </tr>
             <tr class="contact-table__row">
@@ -100,16 +137,18 @@ Contact
                     お問い合わせ内容<span class="contact-table__header-span">※</span>
                 </th>
                 <td class="contact-table__item">
-                    <textarea class="contact-form__textarea" name=""></textarea>
+                    <textarea class="contact-form__textarea" name="detail">{{ old('detail') }}</textarea>
+                    @error('detail')
                     <div class="error-message">
-                        message
+                        {{ $message }}
                     </div>
+                    @enderror
                 </td>
             </tr>
         </table>
 
         <div class="confirm__button">
-            <button class="common-button confirm__button-submit">確認画面</button>
+            <button class="common-button confirm__button-submit" type="submit">確認画面</button>
         </div>
     </form>
 </div>

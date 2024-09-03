@@ -44,8 +44,8 @@
 }
 
 
-.contact-form__radio:not(:first-child) {
-    margin-left: 40px;
+.contact-form__label {
+    padding: 0 15px;
 }
 
 .confirm__button {
@@ -54,11 +54,12 @@
 }
 
 .contact-form__name {
-    width: 40%;
+    width: 45%;
+    margin-right: 20px;
 }
 
 .contact-form__tel {
-    width: 30%;
+    width: 31%;
 }
 
 .contact-form__select {
