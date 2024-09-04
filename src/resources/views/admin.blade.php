@@ -5,9 +5,12 @@
 @endsection
 
 @section('header-nav__link')
-<form class="logout__form" action="" method="">
-    <button class="header-nav__link-button" type="submit" name="">logout</button>
+@if(Auth::check())
+<form class="logout__form" action="/logout" method="post">
+    @csrf
+    <button class="header-nav__link-button" type="submit">logout</button>
 </form>
+@endif
 @endsection
 
 @section('content-title')
