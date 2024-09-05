@@ -28,7 +28,17 @@ class ContactController extends Controller
 
     public function store(Request $request) {
         if($request->has('store')) {
-            $form = $request->all();
+            $form = $request->only([
+                'category_id',
+                'first_name',
+                'last_name',
+                'gender',
+                'email',
+                'tel',
+                'address',
+                'building',
+                'detail',
+            ]);
             // dd($form);
             Contact::create($form);
 
