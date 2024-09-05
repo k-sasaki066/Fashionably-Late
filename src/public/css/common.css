@@ -1,6 +1,6 @@
 body {
     height: 100vh;
-    color: #8b7969;
+    color: #9a816b;
 }
 
 main {
@@ -9,6 +9,11 @@ main {
 
 a {
     text-decoration: none;
+}
+
+input, select, textarea{
+    color: #8b7969;
+    accent-color: #8b7969;
 }
 
 .header {

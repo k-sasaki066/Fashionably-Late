@@ -19,8 +19,8 @@ class ContactFactory extends Factory
             'category_id' => $this->faker->numberBetween(1,5),
             // 'category_id' => function() {
             //         return Category::factory()->create()->id;},
-            'first_name' => $this->faker->firstName(),
-            'last_name' => $this->faker->lastName(),
+            'first_name' => $this->faker->lastName(),
+            'last_name' => $this->faker->firstName(),
             'gender' => $this->faker->numberBetween(1,3),
             'email' => $this->faker->unique()->safeEmail(),
             'tel'=> $this->faker->numerify('###########'),

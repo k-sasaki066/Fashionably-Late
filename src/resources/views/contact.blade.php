@@ -15,7 +15,7 @@ Contact
         <table class="contact-table">
             <tr class="contact-table__row">
                 <th class="contact-table__header">
-                    お名前<span class="contact-table__header-span">※</span>
+                    お名前<span class="contact-table__header-require">※</span>
                 </th>
                 <td class="contact-table__item name-form">
                     <input class="contact-form__item-input contact-form__name" type="name" name="first_name" value="{{ old('first_name') }}" placeholder="例:山田">
@@ -34,16 +34,16 @@ Contact
             </tr>
             <tr class="contact-table__row">
                 <th class="contact-table__header">
-                    性別<span class="contact-table__header-span">※</span>
+                    性別<span class="contact-table__header-require">※</span>
                 </th>
                 <td class="contact-table__item">
-                    <label class="contact-form__label">
+                    <label class="contact-form__gender-label">
                         <input class="contact-form__radio" type="radio" name="gender" value= "1" {{ old('gender') == 1 ? 'checked' : '' }} checked>男性
                     </label>
-                    <label class="contact-form__label">
+                    <label class="contact-form__gender-label">
                         <input class="contact-form__radio" type="radio" name="gender" value="2" {{ old('gender') == 2 ? 'checked' : '' }}>女性
                     </label>
-                    <label class="contact-form__label">
+                    <label class="contact-form__gender-label">
                         <input class="contact-form__radio" type="radio" name="gender" value="3" {{ old('gender') == 3 ? 'checked' : '' }}>その他
                     </label>
                     @error('gender')
@@ -55,7 +55,7 @@ Contact
             </tr>
             <tr class="contact-table__row">
                 <th class="contact-table__header">
-                    メールアドレス<span class="contact-table__header-span">※</span>
+                    メールアドレス<span class="contact-table__header-require">※</span>
                 </th>
                 <td class="contact-table__item">
                     <input class="contact-form__item-input" type="email" name="email" value="{{ old('email') }}" placeholder="例:test@example.com">
@@ -68,9 +68,9 @@ Contact
             </tr>
             <tr class="contact-table__row">
                 <th class="contact-table__header">
-                    電話番号<span class="contact-table__header-span">※</span>
+                    電話番号<span class="contact-table__header-require">※</span>
                 </th>
-                <td class="contact-table__item">
+                <td class="contact-table__item tel-form">
                     <input class="contact-form__item-input contact-form__tel" type="tel" name="tel1" value="{{ old('tel1') }}" placeholder="例:080">
                     <span>-</span>
                     <input class="contact-form__item-input contact-form__tel" type="tel" name="tel2" value="{{ old('tel2') }}" placeholder="例:1234">
@@ -95,7 +95,7 @@ Contact
             </tr>
             <tr class="contact-table__row">
                 <th class="contact-table__header">
-                    住所<span class="contact-table__header-span">※</span>
+                    住所<span class="contact-table__header-require">※</span>
                 </th>
                 <td class="contact-table__item">
                     <input class="contact-form__item-input" type="text" name="address" value="{{ old('address') }}" placeholder="例:東京都渋谷区千駄ヶ谷1-2-3">
@@ -116,13 +116,13 @@ Contact
             </tr>
             <tr class="contact-table__row">
                 <th class="contact-table__header">
-                    お問い合わせの種類<span class="contact-table__header-span">※</span>
+                    お問い合わせの種類<span class="contact-table__header-require">※</span>
                 </th>
                 <td class="contact-table__item">
                     <select class="contact-form__item-input contact-form__select" name="category_id" value="{{ old('category_id') }}">
                         <option value="" selected>選択してください</option>
                             @foreach($categories as $category)
-                            <option value="{{ $category['id'] }}">{{ $category['content'] }}</option>
+                            <option value="{{ $category['id'] }}" @if( old('category_id') ==  $category['id']) selected @endif>{{ $category['content'] }}</option>
                             @endforeach
                     </select>
                     @error('category_id')
@@ -134,7 +134,7 @@ Contact
             </tr>
             <tr class="contact-table__row">
                 <th class="contact-table__header">
-                    お問い合わせ内容<span class="contact-table__header-span">※</span>
+                    お問い合わせ内容<span class="contact-table__header-require">※</span>
                 </th>
                 <td class="contact-table__item">
                     <textarea class="contact-form__textarea" name="detail">{{ old('detail') }}</textarea>

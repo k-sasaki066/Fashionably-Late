@@ -46,3 +46,15 @@
     display: inline-block;
     margin-left: 30px;
 }
+
+.input-text__span {
+    font-size: 14px;
+}
+.contact-back__button {
+    padding: 5px 25px;
+    border: none;
+    background-color: #fff;
+    color: #8b7969;
+    cursor: pointer;
+    margin-left: 15px;
+}

@@ -11,7 +11,7 @@
     width: 100%;
 }
 
-.contact-table__header-span {
+.contact-table__header-require {
     margin-left: 10px;
     color: #ff9494;
 }
@@ -21,6 +21,7 @@
     text-align: left;
     padding: 15px 0;
 }
+
 .contact-table__item {
     padding: 15px 0;
     width: 70%;
@@ -43,19 +44,25 @@
     height: 150px;
 }
 
-
-.contact-form__label {
-    padding: 0 15px;
-}
-
-.confirm__button {
-    margin: 30px 0;
-    text-align: center;
+.name-form {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 
 .contact-form__name {
     width: 45%;
-    margin-right: 20px;
+}
+
+.contact-form__gender-label {
+    padding: 0 15px;
+}
+
+.tel-form {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .contact-form__tel {
@@ -64,4 +71,9 @@
 
 .contact-form__select {
     width: 50%;
+}
+
+.confirm__button {
+    margin: 30px 0;
+    text-align: center;
 }

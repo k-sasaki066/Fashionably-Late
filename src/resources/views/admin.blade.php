@@ -18,28 +18,36 @@ Admin
 @endsection
 
 @section('content')
-<form class="search-form" action="" method="">
-    <input class="search-keyword" type="text" name="" value="" placeholder="名前やメールアドレスを入力してください">
-    <select class="search-gender search-common" name="">
-        <option value="">性別</option>
-        <option value="1">男性</option>
-        <option value="2">女性</option>
-        <option value="3">その他</option>
-    </select>
-    <select class="search-content search-common" name="">
-        <option value="">お問い合わせの種類</option>
-    </select>
-    <input class="search-date search-common" type="date" name="">
-    <button class="search-button" type="submit" name="search">検索</button>
-    <input class="search-reset" type="reset" name="reset">
-</form>
+<div class="search-form__group">
+    <form class="search-form" action="/admin/search" method="get">
+        <input class="search__keyword-button" type="text" name="text_search" value="{{ $text }}" placeholder="名前やメールアドレスを入力してください">
+        <select class="search__gender-button search-common" name="gender_search">
+            <option value="">性別</option>
+            <option value="">全て</option>
+            <option value="1" @if($gender ==  1) selected @endif>男性</option>
+            <option value="2" @if($gender ==  2) selected @endif>女性</option>
+            <option value="3" @if($gender ==  3) selected @endif>その他</option>
+        </select>
+        <select class="search__content-button search-common" name="content_search">
+            <option value="">お問い合わせの種類</option>
+            @foreach($categories as $category)
+            <option value="{{ $category['id'] }}" @if($content ==  $category['id']) selected @endif>{{ $category['content'] }}</option>
+            @endforeach
+        </select>
+        <input class="search__date-button search-common" type="date" name="date_search" value="{{ $date }}">
+        <button class="search-button__submit" type="submit">検索</button>
+    </form>
+    <form class="search-form__reset"action="/admin" method="get">
+        <button class="search-button__reset" type="submit" name="reset">リセット</button>
+    </form>
+</div>
 
 <div class="display__group">
     <form class="scv-file" action="" method="">
         <input class="scv-file__button" type="" name="" placeholder="エクスポート">
     </form>
     <div class="pagi">
-        pagination
+        {{ $contacts->appends(request()->query())->links() }}
     </div>
 </div>
 
@@ -52,13 +60,23 @@ Admin
             <th class="admin-table__header">お問い合わせの種類</th>
             <th class="admin-table__header"></th>
         </tr>
+        @foreach($contacts as $contact)
         <tr class="admin-table__row">
-            <td class="admin-table__item">サンプル</td>
-            <td class="admin-table__item">サンプル</td>
-            <td class="admin-table__item">サンプル</td>
-            <td class="admin-table__item">サンプル</td>
+            <td class="admin-table__item">{{ $contact['first_name'] .' ' .$contact['last_name']}}</td>
+            <td class="admin-table__item">
+                @if($contact['gender'] == 1)
+                男性
+                @elseif($contact['gender'] == 2)
+                女性
+                @else
+                その他
+                @endif
+            </td>
+            <td class="admin-table__item">{{ $contact['email'] }}</td>
+            <td class="admin-table__item">{{ $contact['category'] ['content']}}</td>
             <td class="admin-table__item">サンプル</td>
         </tr>
+        @endforeach
     </table>
 </div>
 
