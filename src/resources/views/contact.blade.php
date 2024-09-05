@@ -18,7 +18,25 @@ Contact
                     お名前<span class="contact-table__header-require">※</span>
                 </th>
                 <td class="contact-table__item name-form">
-                    <input class="contact-form__item-input contact-form__name" type="name" name="first_name" value="{{ old('first_name') }}" placeholder="例:山田">
+                    <div class="name-wrap">
+                        <div class="contact-form__name">
+                            <input class="contact-form__item-input" type="name" name="first_name" value="{{ old('first_name') }}" placeholder="例:山田">
+                            @error('first_name')
+                            <div class="error-message">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+                        <div class="contact-form__name">
+                            <input class="contact-form__item-input" type="name" name="last_name" value="{{ old('last_name') }}" placeholder="例:太郎">
+                            @error('last_name')
+                            <div class="error-message">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+                    </div>
+                    <!-- <input class="contact-form__item-input contact-form__name" type="name" name="first_name" value="{{ old('first_name') }}" placeholder="例:山田">
                     <input class="contact-form__item-input contact-form__name" type="name" name="last_name" value="{{ old('last_name') }}" placeholder="例:太郎">
                     @error('first_name')
                     <div class="error-message">
@@ -29,7 +47,7 @@ Contact
                     <div class="error-message">
                         {{ $message }}
                     </div>
-                    @enderror
+                    @enderror -->
                 </td>
             </tr>
             <tr class="contact-table__row">
