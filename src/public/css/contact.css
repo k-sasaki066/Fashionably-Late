@@ -44,25 +44,17 @@
     height: 150px;
 }
 
-.name-form {
-    width: 100%;
+.name-wrap {
     display: flex;
     justify-content: space-between;
 }
 
 .contact-form__name {
-    width: 45%;
+    width: 46%;
 }
 
 .contact-form__gender-label {
     padding: 0 15px;
-}
-
-.tel-form {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
 .contact-form__tel {
