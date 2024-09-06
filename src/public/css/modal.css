@@ -1,0 +1,58 @@
+.show-detail__button {
+    background-color: #fcfcfc;
+    color: #d9c6b5;
+    border: 1px solid #e6dcd1;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+.modal__group {
+    position: fixed;
+    inset: 0;
+    overflow-y: auto;
+    z-index: 10;
+    border: 1px solid #8b7969;
+    background-color: #fff;
+    width: 50%;
+    margin: 50px auto;
+    padding: 20px;
+    box-shadow: 3px 3px 3px #d7d0cb;
+}
+
+.close-detail__modal {
+    text-align: right;
+}
+
+.close-detail__button {
+    border: 1px solid #8b7969;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.modal__content {
+    width: 80%;
+    margin: 30px auto 80px;
+}
+
+.modal-table {
+    width: 100%;
+}
+
+.modal-table__header {
+    width: 40%;
+    padding: 15px;
+    text-align: left;
+}
+
+.modal-table__item {
+    text-align: left;
+    padding: 15px;
+}
+
+.delete-button__submit {
+    background-color: #ba360e;
+    color: #fff;
+    padding: 5px 15px;
+    border: none;
+    cursor: pointer;
+}
