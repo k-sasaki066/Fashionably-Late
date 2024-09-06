@@ -6,6 +6,7 @@
     <title>Fashionably Late</title>
     <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
     <link rel="stylesheet" href="{{ asset('css/common.css') }}">
+    @livewireStyles
     @yield('css')
 </head>
 <body>
@@ -24,6 +25,6 @@
         </div>
         @yield('content')
     </main>
-
+    @livewireScripts
 </body>
 </html>
