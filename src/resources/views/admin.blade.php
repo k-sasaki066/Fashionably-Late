@@ -78,7 +78,7 @@ Admin
             </td>
             <td class="admin-table__item">{{ $contact['email'] }}</td>
             <td class="admin-table__item">{{ $contact['category'] ['content']}}</td>
-            <td class="admin-table__item">@livewire('modal')</td>
+            <td class="admin-table__item">@livewire('modal',['contact_id'=>$contact['id']])</td>
         </tr>
         @endforeach
     </table>
