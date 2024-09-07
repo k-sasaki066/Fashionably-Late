@@ -36,18 +36,6 @@ Contact
                             @enderror
                         </div>
                     </div>
-                    <!-- <input class="contact-form__item-input contact-form__name" type="name" name="first_name" value="{{ old('first_name') }}" placeholder="例:山田">
-                    <input class="contact-form__item-input contact-form__name" type="name" name="last_name" value="{{ old('last_name') }}" placeholder="例:太郎">
-                    @error('first_name')
-                    <div class="error-message">
-                        {{ $message }}
-                    </div>
-                    @enderror
-                    @error('last_name')
-                    <div class="error-message">
-                        {{ $message }}
-                    </div>
-                    @enderror -->
                 </td>
             </tr>
             <tr class="contact-table__row">

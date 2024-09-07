@@ -3,13 +3,19 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use App\Model\Contact;
-use App\Model\Category;
+use App\Models\Contact;
+use App\Models\Category;
 
 
 class Modal extends Component
 {
     public $showModal = false;
+    public $detail;
+
+    public function mount($contact_id)
+    {
+        $this->detail = Contact::with('category')->find($contact_id);
+    }
 
     public function render()
     {
