@@ -125,12 +125,20 @@ Contact
                     お問い合わせの種類<span class="contact-table__header-require">※</span>
                 </th>
                 <td class="contact-table__item">
-                    <select class="contact-form__item-input contact-form__select" name="category_id" value="{{ old('category_id') }}">
+                    <div class="select-wrapper">
+                        <select class="contact-form__item-input contact-form__select" name="category_id" value="{{ old('category_id') }}">
+                            <option value="" selected>選択してください</option>
+                                @foreach($categories as $category)
+                                <option value="{{ $category['id'] }}" @if( old('category_id') ==  $category['id']) selected @endif>{{ $category['content'] }}</option>
+                                @endforeach
+                        </select>
+                    </div>
+                    <!-- <select class="contact-form__item-input contact-form__select" name="category_id" value="{{ old('category_id') }}">
                         <option value="" selected>選択してください</option>
                             @foreach($categories as $category)
                             <option value="{{ $category['id'] }}" @if( old('category_id') ==  $category['id']) selected @endif>{{ $category['content'] }}</option>
                             @endforeach
-                    </select>
+                    </select> -->
                     @error('category_id')
                     <div class="error-message">
                         {{ $message }}
@@ -143,7 +151,7 @@ Contact
                     お問い合わせ内容<span class="contact-table__header-require">※</span>
                 </th>
                 <td class="contact-table__item">
-                    <textarea class="contact-form__textarea" name="detail">{{ old('detail') }}</textarea>
+                    <textarea class="contact-form__textarea" name="detail" placeholder="お問い合わせ内容をご記載ください">{{ old('detail') }}</textarea>
                     @error('detail')
                     <div class="error-message">
                         {{ $message }}
