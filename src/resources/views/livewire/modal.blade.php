@@ -49,9 +49,7 @@
                     </tr>
                 </table>
             </div>
-            <form class="delete-button" action="" method="">
-                <button class="delete-button__submit" type="button" name="">削除</button>
-            </form>
+                <button class="delete-button__submit" type="button" wire:click="deleteUser({{$detail['id']}})" name="delete">削除</button>
         </div>
         @endif
     </div>

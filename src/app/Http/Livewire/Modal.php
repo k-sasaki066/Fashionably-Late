@@ -31,4 +31,10 @@ class Modal extends Component
     {
         $this->showModal = false;
     }
+
+    public function deleteUser($contact_id)
+    {
+        $this->detail->delete();
+        $this->showModal = false;
+    }
 }
