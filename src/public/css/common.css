@@ -16,9 +16,14 @@ input, select, textarea{
     accent-color: #524a44;
 }
 
+input::placeholder,
+textarea::placeholder {
+    color: #beb1a7;
+}
+
 .header {
     margin: 0 auto;
-    padding: 0 15px;
+    /* padding: 0 15px; */
     height: 8%;
     border-bottom: 1px solid #f3f3f3;
     display: flex;
@@ -66,6 +71,5 @@ input, select, textarea{
 
 .error-message {
     color: #ff9494;
-    margin-bottom: 15px;
 }
 

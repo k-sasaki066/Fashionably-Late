@@ -62,8 +62,25 @@
     width: 31%;
 }
 
+.select-wrapper {
+    position: relative;
+}
+
 .contact-form__select {
     width: 50%;
+    appearance: none;
+}
+
+.select-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 55%;
+    border-right: 12px solid transparent;
+    border-left: 12px solid transparent;
+    border-top: 12px solid #beb1b7;
+    border-bottom: 0;
+    transform: translate(0, -50%);
 }
 
 .confirm__button {
