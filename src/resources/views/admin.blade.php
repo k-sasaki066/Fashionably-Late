@@ -52,7 +52,7 @@ Admin
         <input class="scv-file__button" type="submit" value="エクスポート">
     </form>
     <div class="pagi">
-        {{ $contacts->appends(request()->query())->links() }}
+        {{ $contacts->appends(request()->query())->links('vendor.pagination.custom') }}
     </div>
 </div>
 
