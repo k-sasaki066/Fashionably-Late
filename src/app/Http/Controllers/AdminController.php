@@ -15,7 +15,7 @@ class AdminController extends Controller
         $gender = null;
         $content = null;
         $date = null;
-        $contacts = Contact::with('category')->orderBy('created_at', 'desc')->simplePaginate(7);
+        $contacts = Contact::with('category')->orderBy('created_at', 'desc')->Paginate(7);
         // dd($contacts);
         $categories = Category::all();
         // dd($category);
@@ -35,7 +35,7 @@ class AdminController extends Controller
         ->ContentSearch($request->content_search)
         ->GenderSearch($request->gender_search)
         ->DateSearch($request->date_search)
-        ->simplePaginate(7);
+        ->Paginate(7);
         // dd($contacts);
 
         return view('admin', compact('contacts', 'categories', 'text', 'gender','content', 'date'));
