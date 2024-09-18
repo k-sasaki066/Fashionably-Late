@@ -47,8 +47,9 @@ Admin
 </div>
 
 <div class="display__group">
-    <form class="scv-file" action="" method="">
-        <input class="scv-file__button" type="" name="" placeholder="エクスポート">
+    <form class="scv-file" action="{{'/export?'.http_build_query(request()->query())}}" method="post">
+        @csrf
+        <input class="scv-file__button" type="submit" value="エクスポート">
     </form>
     <div class="pagi">
         {{ $contacts->appends(request()->query())->links() }}

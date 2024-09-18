@@ -64,7 +64,7 @@ Contact
                     メールアドレス<span class="contact-table__header-require">※</span>
                 </th>
                 <td class="contact-table__item">
-                    <input class="contact-form__item-input" type="email" name="email" value="{{ old('email') }}" placeholder="例:test@example.com">
+                    <input class="contact-form__item-input" type="text" name="email" value="{{ old('email') }}" placeholder="例:test@example.com">
                     @error('email')
                     <div class="error-message">
                         {{ $message }}
@@ -82,21 +82,15 @@ Contact
                     <input class="contact-form__item-input contact-form__tel" type="tel" name="tel2" value="{{ old('tel2') }}" placeholder="例:1234">
                     <span>-</span>
                     <input class="contact-form__item-input contact-form__tel" type="tel" name="tel3" value="{{ old('tel3') }}" placeholder="例:5678">
-                    @error('tel1')
                     <div class="error-message">
-                        {{ $message }}
+                        @if($errors->has('tel1'))
+                        {{ $errors->first('tel1') }}
+                        @elseif($errors->has('tel2'))
+                        {{ $errors->first('tel2') }}
+                        @else
+                        {{ $errors->first('tel3') }}
+                        @endif
                     </div>
-                    @enderror
-                    @error('tel2')
-                    <div class="error-message">
-                        {{ $message }}
-                    </div>
-                    @enderror
-                    @error('tel3')
-                    <div class="error-message">
-                        {{ $message }}
-                    </div>
-                    @enderror
                 </td>
             </tr>
             <tr class="contact-table__row">

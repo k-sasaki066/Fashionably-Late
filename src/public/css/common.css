@@ -23,13 +23,13 @@ textarea::placeholder {
 
 .header {
     margin: 0 auto;
-    /* padding: 0 15px; */
     height: 8%;
     border-bottom: 1px solid #f3f3f3;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
+    font-family: serif;
 }
 
 .header-title {
@@ -59,6 +59,7 @@ textarea::placeholder {
 .content-title {
     text-align: center;
     font-size: 20px;
+    font-family: serif;
 }
 
 .common-button {
