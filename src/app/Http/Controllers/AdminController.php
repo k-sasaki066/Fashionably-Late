@@ -11,34 +11,26 @@ use Symfony\Component\HttpFoundation\StreamedResponse;
 class AdminController extends Controller
 {
     public function admin() {
-        $text = null;
-        $gender = null;
-        $content = null;
-        $date = null;
         $contacts = Contact::with('category')->orderBy('created_at', 'desc')->Paginate(7);
         // dd($contacts);
         $categories = Category::all();
         // dd($category);
-        return view('admin', compact('contacts', 'categories','text', 'gender','content', 'date'));
+        return view('admin', compact('contacts', 'categories',));
     }
 
     public function search(Request $request) {
         // dd($request);
-        $text = ($request->text_search) ? $request->text_search : null;
-        $gender = ($request->gender_search) ? $request->gender_search : null;
-        $content = ($request->content_search) ? $request->content_search : null;
-        $date = ($request->date_search) ? $request->date_search : null;
 
         $categories = Category::all();
         $contacts = Contact::with('category')
-        ->TextSearch($request->text_search)
-        ->ContentSearch($request->content_search)
-        ->GenderSearch($request->gender_search)
-        ->DateSearch($request->date_search)
+        ->TextSearch($request->text)
+        ->ContentSearch($request->content)
+        ->GenderSearch($request->gender)
+        ->DateSearch($request->date)
         ->Paginate(7);
         // dd($contacts);
 
-        return view('admin', compact('contacts', 'categories', 'text', 'gender','content', 'date'));
+        return view('admin', compact('contacts', 'categories'));
     }
 
     public function export(Request $request)
