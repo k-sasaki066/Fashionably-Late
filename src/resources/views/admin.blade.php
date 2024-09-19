@@ -1,8 +1,5 @@
 @extends('layouts.app')
 
-<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> -->
-
-
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
 <link rel="stylesheet" href="{{ asset('css/modal.css') }}">
@@ -24,21 +21,21 @@ Admin
 @section('content')
 <div class="search-form__group">
     <form class="search-form" action="/admin/search" method="get">
-        <input class="search__keyword-button" type="text" name="text_search" value="{{ $text }}" placeholder="名前やメールアドレスを入力してください">
-        <select class="search__gender-button search-common" name="gender_search">
+        <input class="search__keyword-button" type="text" name="text" value="{{ request('text') }}" placeholder="名前やメールアドレスを入力してください">
+        <select class="search__gender-button search-common" name="gender" value="{{ request('gender') }}">
             <option value="">性別</option>
             <option value="">全て</option>
-            <option value="1" @if($gender ==  1) selected @endif>男性</option>
-            <option value="2" @if($gender ==  2) selected @endif>女性</option>
-            <option value="3" @if($gender ==  3) selected @endif>その他</option>
+            <option value="1" @if( request('gender')  ==  1) selected @endif>男性</option>
+            <option value="2" @if(request('gender') ==  2) selected @endif>女性</option>
+            <option value="3" @if(request('gender') ==  3) selected @endif>その他</option>
         </select>
-        <select class="search__content-button search-common" name="content_search">
+        <select class="search__content-button search-common" name="content">
             <option value="">お問い合わせの種類</option>
             @foreach($categories as $category)
-            <option value="{{ $category['id'] }}" @if($content ==  $category['id']) selected @endif>{{ $category['content'] }}</option>
+            <option value="{{ $category['id'] }}" @if(request('content') ==  $category['id']) selected @endif>{{ $category['content'] }}</option>
             @endforeach
         </select>
-        <input class="search__date-button search-common" type="date" name="date_search" value="{{ $date }}">
+        <input class="search__date-button search-common" type="date" name="date" value="{{ request('date') }}">
         <button class="search-button__submit" type="submit">検索</button>
     </form>
     <form class="search-form__reset"action="/admin" method="get">
